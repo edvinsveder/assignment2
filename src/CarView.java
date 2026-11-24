@@ -98,6 +98,21 @@ public class CarView extends JFrame {
         gasButton.addActionListener(e -> {
             carC.gas(gasAmount);
         });
+        brakeButton.addActionListener(e -> {
+            carC.brake(gasAmount);
+        });
+        leftButton.addActionListener(e -> {
+            carC.turnLeft();
+        });
+        rightButton.addActionListener(e -> {
+            carC.turnRight();
+        });
+        startButton.addActionListener(e -> {
+            carC.startEngine();
+        });
+        stopButton.addActionListener(e -> {
+            carC.stopEngine();
+        });
 
         // Make the panel layout more compact
         this.pack();
@@ -110,5 +125,6 @@ public class CarView extends JFrame {
         this.setVisible(true);
         // Make sure the frame exits when "x" is pressed
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+
     }
 }

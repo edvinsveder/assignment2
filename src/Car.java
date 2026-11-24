@@ -106,16 +106,16 @@ public abstract class Car implements Movable {
     }
     
     public void turnLeft() {
-        this.direction--;
-        if(this.direction < 0) {
-            this.direction = 3;
+        this.direction++;
+        if(this.direction > 3) {
+            this.direction = 0;
         }
     }
     
     public void turnRight() {
-        this.direction++;
-        if(this.direction > 3) {
-            this.direction = 0;
+        this.direction--;
+        if(this.direction < 0) {
+            this.direction = 3;
         }
     }
 
