@@ -30,11 +30,24 @@ public class CarController {
      */
     private class TimerListener implements ActionListener {
         public void actionPerformed(ActionEvent e) {
-            for (Car car : cars) {
+            for (int i = 0; i < cars.size(); i++) {
+
+                Car car = cars.get(i);
+
                 car.move();
+                // Checking collision with top and bottom walls
+                if (car.getX() <= 0 || car.getX() >= CarView.X - 115) {
+                    car.turnRight();
+                    car.turnRight();
+                }
+                // Checking collision with right and left walls
+                if (car.getY() <= 0 || car.getY() >= CarView.Y - 300) {
+                    car.turnRight();
+                    car.turnRight();
+                }
                 int x = (int) Math.round(car.getX());
                 int y = (int) Math.round(car.getY());
-                frame.drawPanel.moveit(x, y);
+                frame.drawPanel.moveit(i, x, y);
                 // repaint() calls the paintComponent method of the panel
                 frame.drawPanel.revalidate();
                 frame.drawPanel.repaint();
@@ -80,12 +93,21 @@ public class CarController {
         }
     }
 
-    double getX() {
-        return cars.getFirst().getX();
+    void turboOn() {
+        for (Car car : cars) {
+            if (car instanceof Saab95) {
+                ((Saab95) car).setTurboOn();
+            }
+        }
     }
 
-    double getY() {
-        return cars.getFirst().getY();
+    void turboOff() {
+        for (Car car : cars) {
+            if (car instanceof Saab95) {
+                ((Saab95) car).setTurboOff();
+            }
+        }
     }
+
 
 }
