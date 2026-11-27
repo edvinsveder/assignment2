@@ -34,6 +34,8 @@ public abstract class Car implements Movable {
         return y_cord;
     }
 
+    public void setStartPos(double x, double y) { x_cord = x; y_cord = y; }
+
     public int getDirection() {
         return direction;
     }

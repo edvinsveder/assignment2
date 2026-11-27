@@ -35,12 +35,12 @@ public class CarController {
                 Car car = cars.get(i);
 
                 car.move();
-                // Checking collision with top and bottom walls
+                // Checking collision with right and left walls
                 if (car.getX() <= 0 || car.getX() >= CarView.X - 115) {
                     car.turnRight();
                     car.turnRight();
                 }
-                // Checking collision with right and left walls
+                // Checking collision with top and bottom walls
                 if (car.getY() <= 0 || car.getY() >= CarView.Y - 300) {
                     car.turnRight();
                     car.turnRight();

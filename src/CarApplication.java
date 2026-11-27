@@ -2,12 +2,16 @@ void main() {
     // Instance of this class
     CarController cc = new CarController();
 
-    boolean carChoice = false;
+    boolean carChoice = true;
 
     if (carChoice) {
-        cc.cars.add(new Volvo240());
+        Volvo240 volvo = new Volvo240();
+        volvo.setStartPos(50, 50);
+        cc.cars.add(volvo);
     } else {
-        cc.cars.add(new Saab95());
+        Saab95 saab = new Saab95();
+        saab.setStartPos(150, 150);
+        cc.cars.add(saab);
     }
 
     // Start a new view and send a reference to the controller as well as which car was chosen
